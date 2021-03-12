@@ -28,7 +28,21 @@
 </template>
 
 <script>
-export default {}
+import { useMeta } from "@nuxtjs/composition-api";
+export default {
+  head: {},
+  setup() {
+    useMeta(() => ({
+      title: "Home Page",
+      meta: [
+        { name: "twitter:title", content: "Nuxt Fundamentals" },
+        { name: "title:description", content: "Nuxt + Vue School" },
+        { name: "title:image", content: "@/static/favicon.ico" },
+        { name: "title:card", content: "summury_large_image" }
+      ]
+    }));
+  }
+};
 </script>
 
 <style scoped>
@@ -42,16 +56,8 @@ export default {}
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

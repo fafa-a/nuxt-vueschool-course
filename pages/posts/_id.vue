@@ -18,8 +18,15 @@
 </template>
 
 <script>
-import { computed, reactive, toRefs, useRoute } from "@nuxtjs/composition-api";
+import {
+  computed,
+  reactive,
+  toRefs,
+  useMeta,
+  useRoute
+} from "@nuxtjs/composition-api";
 export default {
+  head: {},
   setup() {
     const route = useRoute();
     const state = reactive({
@@ -51,6 +58,15 @@ export default {
         return state.posts.filter(post => post.id !== state.id);
       })
     });
+    useMeta(() => ({
+      title: state.post.title,
+      meta: [
+        { name: "twitter:title", content: "state.post.title" },
+        { name: "title:description", content: "state.post.content" },
+        { name: "title:image", content: "@/static/favicon.ico" },
+        { name: "title:card", content: "summury_large_image" }
+      ]
+    }));
     return {
       ...toRefs(state)
     };

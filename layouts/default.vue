@@ -1,11 +1,18 @@
 <template>
-  <div>
+  <div class="container">
+    <TheNavbar />
     <Nuxt />
   </div>
 </template>
+<script>
+import TheNavbar from "@/components/TheNavbar";
+
+export default {
+  setup() {}
+};
+</script>
 
 <style>
-
 .button--green {
   display: inline-block;
   border-radius: 4px;
